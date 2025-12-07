@@ -37,7 +37,7 @@ def get_sideload_objects(stream):
 def check_end_date(record, config, replication_key):
     if 'end_date' in config:
         record_key_date = process_record(record)[replication_key]
-        end_date = round(datetime.datetime.strptime(config['end_date'], "%Y-%m-%dT%H:%M:%SZ").timestamp())
+        end_date = round(datetime.datetime.strptime(config['end_date'], "%Y-%m-%dT%H:%M:%S").timestamp())
         if not isinstance(record_key_date, int):
             record_key_date = round(datetime.datetime.strptime(record_key_date, "%Y-%m-%dT%H:%M:%SZ").timestamp())
         return record_key_date > end_date
